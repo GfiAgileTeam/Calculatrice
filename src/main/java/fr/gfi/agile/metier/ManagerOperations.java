@@ -2,7 +2,7 @@ package fr.gfi.agile.metier;
 
 public class ManagerOperations {
 	
-	public double additionner(double i, double j) {
+	public static double additionner(double i, double j) {
 		return i+j;
 	}
 	
