@@ -20,19 +20,28 @@ public class Calculatrice {
 	}
 
 	public void creerCalculatrice() {
-		
-		//1. Create the frame.
+
+		// 1. Create the frame.
 		JFrame fenetreCalculatrice = new JFrame("Calculatrice");
 
-		//2. Optional: What happens when the frame closes?
+		// 2. Optional: What happens when the frame closes?
 		fenetreCalculatrice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//3. Create components and put them in the frame.
+		// 3. Create components and put them in the frame.
+
+		GridLayout grilleGlobale = new GridLayout(2, 1);
+		JPanel panelGlobal = new JPanel(grilleGlobale);
 		
-		//...create emptyLabel...
+		JPanel panelResultat = new JPanel();
+		// ...create emptyLabel...
+
 		final JLabel resultat = new JLabel("");
-		resultat.setSize(100,50);
-			
+		resultat.setSize(100, 50);
+		panelResultat.add(resultat);
+
+		panelGlobal.add(panelResultat);
+		// verticalLayout.addLayoutComponent("resultat", resultat);
+
 		JButton boutonZero = new JButton("0");
 		JButton boutonUn = new JButton("1");
 		JButton boutonDeux = new JButton("2");
@@ -72,45 +81,45 @@ public class Calculatrice {
 			}
 		});
 		
-		GridLayout grilleLayout = new GridLayout(1,10);
-		JPanel panel = new JPanel(grilleLayout);
-		fenetreCalculatrice.add(panel);
-		panel.add(resultat);
-		panel.add(boutonZero);
-		panel.add(boutonUn);
-		panel.add(boutonDeux);
-		panel.add(boutonTrois);
-		panel.add(boutonQuatre);
-		panel.add(boutonCinq);
-		panel.add(boutonSix);
-		panel.add(boutonSept);
-		panel.add(boutonHuit);
-		panel.add(boutonNeuf);
-		panel.add(boutonAddition);
-		
-		ActionListener listener = new NumberListener(resultat);
-		
-		boutonZero.addActionListener(listener);
-		boutonUn.addActionListener(listener);
-		boutonDeux.addActionListener(listener);
-		boutonTrois.addActionListener(listener);
-		boutonQuatre.addActionListener(listener);
-		boutonCinq.addActionListener(listener);
-		boutonSix.addActionListener(listener);
-		boutonSept.addActionListener(listener);
-		boutonHuit.addActionListener(listener);
-		boutonNeuf.addActionListener(listener);
-		
-		
-		//4. Size the frame.
+
+		GridLayout grilleLayout = new GridLayout(4, 3);
+
+		JPanel panelBoutons = new JPanel(grilleLayout);
+		panelBoutons.add(boutonSept);
+		panelBoutons.add(boutonHuit);
+		panelBoutons.add(boutonNeuf);
+		panelBoutons.add(boutonQuatre);
+		panelBoutons.add(boutonCinq);
+		panelBoutons.add(boutonSix);
+		panelBoutons.add(boutonUn);
+		panelBoutons.add(boutonDeux);
+		panelBoutons.add(boutonTrois);
+		panelBoutons.add(boutonZero);
+		panelBoutons.add(boutonAddition);
+
+		panelGlobal.add(panelBoutons);
+		fenetreCalculatrice.add(panelGlobal);
+
+		ActionListener numberListener = new NumberListener(resultat);
+
+		boutonZero.addActionListener(numberListener);
+		boutonUn.addActionListener(numberListener);
+		boutonDeux.addActionListener(numberListener);
+		boutonTrois.addActionListener(numberListener);
+		boutonQuatre.addActionListener(numberListener);
+		boutonCinq.addActionListener(numberListener);
+		boutonSix.addActionListener(numberListener);
+		boutonSept.addActionListener(numberListener);
+		boutonHuit.addActionListener(numberListener);
+		boutonNeuf.addActionListener(numberListener);
+
+		// 4. Size the frame.
 		fenetreCalculatrice.pack();
 
-		//5. Show it.
+		// 5. Show it.
 		fenetreCalculatrice.setVisible(true);
 
 	}
-
-	
 
 	/**
 	 * 
