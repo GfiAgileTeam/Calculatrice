@@ -120,7 +120,7 @@ public class Calculatrice {
 		fenetreCalculatrice.setVisible(true);
 
 	}
-
+	
 	/**
 	 * 
 	 * @param double i
@@ -132,4 +132,9 @@ public class Calculatrice {
 	}
 	
 	
+	public static double egal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
