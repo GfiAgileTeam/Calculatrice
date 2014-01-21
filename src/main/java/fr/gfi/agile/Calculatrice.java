@@ -3,6 +3,9 @@ package fr.gfi.agile;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,6 +37,33 @@ public class Calculatrice {
 		JButton boutonSept = new JButton("7");
 		JButton boutonHuit = new JButton("8");
 		JButton boutonNeuf = new JButton("9");
+		JButton boutonAddition = new JButton("+");
+		boutonAddition.addMouseListener(new MouseListener() {
+			
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("on fait un plus");
+			}
+		});
 		
 		GridLayout grilleLayout = new GridLayout(1,10);
 		JPanel panel = new JPanel(grilleLayout);
@@ -48,6 +78,7 @@ public class Calculatrice {
 		panel.add(boutonSept);
 		panel.add(boutonHuit);
 		panel.add(boutonNeuf);
+		panel.add(boutonAddition);
 
 		//4. Size the frame.
 		fenetreCalculatrice.pack();
