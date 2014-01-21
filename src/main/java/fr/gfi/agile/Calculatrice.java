@@ -1,11 +1,10 @@
 package fr.gfi.agile;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +24,8 @@ public class Calculatrice {
 		//3. Create components and put them in the frame.
 		
 		//...create emptyLabel...
-		JLabel emptyLabel = new JLabel("Hello World !!!");
+		final JLabel resultat = new JLabel("");
+		resultat.setSize(100,50);
 			
 		JButton boutonZero = new JButton("0");
 		JButton boutonUn = new JButton("1");
@@ -68,6 +68,7 @@ public class Calculatrice {
 		GridLayout grilleLayout = new GridLayout(1,10);
 		JPanel panel = new JPanel(grilleLayout);
 		fenetreCalculatrice.add(panel);
+		panel.add(resultat);
 		panel.add(boutonZero);
 		panel.add(boutonUn);
 		panel.add(boutonDeux);
@@ -80,6 +81,30 @@ public class Calculatrice {
 		panel.add(boutonNeuf);
 		panel.add(boutonAddition);
 
+		
+		ActionListener listener = new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+					String valeurBouton = ((JButton)e.getSource()).getText();
+					
+				String text = resultat.getText();
+				text += valeurBouton;
+				resultat.setText(text);
+			}
+		};
+		
+		boutonZero.addActionListener(listener);
+		boutonUn.addActionListener(listener);
+		boutonDeux.addActionListener(listener);
+		boutonTrois.addActionListener(listener);
+		boutonQuatre.addActionListener(listener);
+		boutonCinq.addActionListener(listener);
+		boutonSix.addActionListener(listener);
+		boutonSept.addActionListener(listener);
+		boutonHuit.addActionListener(listener);
+		boutonNeuf.addActionListener(listener);
+		
+		
 		//4. Size the frame.
 		fenetreCalculatrice.pack();
 
