@@ -1,6 +1,7 @@
 package fr.gfi.agile;
 
 import java.awt.GridLayout;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,7 +13,12 @@ import javax.swing.JPanel;
 
 import fr.gfi.agile.composant.BoutonSoustraction;
 import fr.gfi.agile.listeners.EgalListener;
+import fr.gfi.agile.listeners.KeyboardDispatcher;
 import fr.gfi.agile.listeners.NumberListener;
+
+import fr.gfi.agile.metier.ManagerOperations;
+import fr.gfi.agile.listeners.SoustraireListener;
+
 
 public class Calculatrice {
 
@@ -121,6 +127,13 @@ public class Calculatrice {
 		ActionListener egalListener = new EgalListener(resultat);
 		boutonEqual.addActionListener(egalListener);
 		
+		ActionListener listenerSoustraire = new SoustraireListener(resultat);
+		boutonSoustraire.addActionListener(listenerSoustraire);
+
+		// Catch keyboard events
+		KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+		manager.addKeyEventDispatcher(new KeyboardDispatcher(resultat));
+				
 		//4. Size the frame.
 		fenetreCalculatrice.pack();
 
