@@ -1,9 +1,6 @@
 package fr.gfi.agile;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -11,9 +8,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fr.gfi.agile.listeners.NumberListener;
+
 public class Calculatrice {
 
-	public static void main(String[] args) {
+	public Calculatrice() {
+		super();
+		creerCalculatrice();
+	}
+
+	public void creerCalculatrice() {
 		
 		//1. Create the frame.
 		JFrame fenetreCalculatrice = new JFrame("Calculatrice");
@@ -54,16 +58,7 @@ public class Calculatrice {
 		panel.add(boutonNeuf);
 
 		
-		ActionListener listener = new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-					String valeurBouton = ((JButton)e.getSource()).getText();
-					
-				String text = resultat.getText();
-				text += valeurBouton;
-				resultat.setText(text);
-			}
-		};
+		ActionListener listener = new NumberListener(resultat);
 		
 		boutonZero.addActionListener(listener);
 		boutonUn.addActionListener(listener);

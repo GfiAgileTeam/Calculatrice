@@ -31,7 +31,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>fr.gfi.agile.Calculatrice</mainClass>
+							<mainClass>fr.gfi.agile.Main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
