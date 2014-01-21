@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import fr.gfi.agile.listeners.EgalListener;
 import fr.gfi.agile.listeners.NumberListener;
+import fr.gfi.agile.metier.ManagerOperations;
 
 public class Calculatrice {
 
@@ -115,10 +116,9 @@ public class Calculatrice {
 		boutonHuit.addActionListener(numberListener);
 		boutonNeuf.addActionListener(numberListener);
 
-		ActionListener egalListener = new EgalListener(this, resultat);
+		ActionListener egalListener = new EgalListener(resultat);
 		boutonEqual.addActionListener(egalListener);
 
-		// 4. Size the frame.
 		fenetreCalculatrice.pack();
 
 		// 5. Show it.

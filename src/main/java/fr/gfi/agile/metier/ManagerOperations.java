@@ -6,4 +6,8 @@ public class ManagerOperations {
 		return i+j;
 	}
 	
+	public static double egal() {
+		return 0;
+	}
+	
 }
