@@ -12,8 +12,6 @@ import javax.swing.JPanel;
 
 import fr.gfi.agile.listeners.NumberListener;
 
-
-
 public class Calculatrice {
 
 	public Calculatrice() {
