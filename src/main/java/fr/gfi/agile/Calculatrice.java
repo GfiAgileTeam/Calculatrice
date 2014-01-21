@@ -11,11 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fr.gfi.agile.listeners.EgalListener;
+import fr.gfi.agile.listeners.AdditionListener;
 import fr.gfi.agile.listeners.NumberListener;
 import fr.gfi.agile.listeners.SoustraireListener;
 
 public class Calculatrice {
 
+	private static JLabel RESULTAT = new JLabel("");
+	
 	public Calculatrice() {
 		super();
 		creerCalculatrice();
@@ -36,11 +39,11 @@ public class Calculatrice {
 
 		JPanel panelResultat = new JPanel();
 
-		final JLabel resultat = new JLabel("");
-		resultat.setSize(100, 50);
-		panelResultat.add(resultat);
+		// ...create emptyLabel...
+		panelResultat.add(RESULTAT);
 
 		panelGlobal.add(panelResultat);
+		// verticalLayout.addLayoutComponent("resultat", resultat);
 
 		JButton boutonZero = new JButton("0");
 		JButton boutonUn = new JButton("1");
@@ -53,7 +56,7 @@ public class Calculatrice {
 		JButton boutonHuit = new JButton("8");
 		JButton boutonNeuf = new JButton("9");
 
-		ActionListener numberListener = new NumberListener(resultat);
+		ActionListener numberListener = new NumberListener(RESULTAT);
 
 		boutonZero.addActionListener(numberListener);
 		boutonUn.addActionListener(numberListener);
@@ -71,33 +74,8 @@ public class Calculatrice {
 		JButton boutonMultiplication = new JButton("*");
 		JButton boutonEqual = new JButton("=");
 
-		boutonAddition.addMouseListener(new MouseListener() {
-
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			public void mouseClicked(MouseEvent arg0) {
-				System.out.println("On fait une addition");
-
-			}
-		});
+		AdditionListener additionListener = new AdditionListener();
+		boutonAddition.addMouseListener(additionListener);
 
 		GridLayout grilleLayout = new GridLayout(4, 4);
 
@@ -129,10 +107,24 @@ public class Calculatrice {
 		panelGlobal.add(panelBoutons);
 		fenetreCalculatrice.add(panelGlobal);
 
-		ActionListener egalListener = new EgalListener(resultat);
+
+
+		boutonZero.addActionListener(numberListener);
+		boutonUn.addActionListener(numberListener);
+		boutonDeux.addActionListener(numberListener);
+		boutonTrois.addActionListener(numberListener);
+		boutonQuatre.addActionListener(numberListener);
+		boutonCinq.addActionListener(numberListener);
+		boutonSix.addActionListener(numberListener);
+		boutonSept.addActionListener(numberListener);
+		boutonHuit.addActionListener(numberListener);
+		boutonNeuf.addActionListener(numberListener);
+
+		ActionListener egalListener = new EgalListener(RESULTAT);
+
 		boutonEqual.addActionListener(egalListener);
 
-		ActionListener listenerSoustraire = new SoustraireListener(resultat);
+		ActionListener listenerSoustraire = new SoustraireListener(RESULTAT);
 		boutonSoustraire.addActionListener(listenerSoustraire);
 
 		// 4. Size the frame.
@@ -141,6 +133,29 @@ public class Calculatrice {
 		// 5. Show it.
 		fenetreCalculatrice.setVisible(true);
 
+	}
+
+	/**
+	 * 
+	 * @param double i
+	 * @param double j
+	 * @return double
+	 */
+	public static double soustraire(double i, double j) {
+		return i - j;
+	}
+
+	public double egal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static String getResultat() {
+		return RESULTAT.getText();
+	}
+	
+	public static void setResultat(String resultat) {
+		RESULTAT.setText(resultat);
 	}
 
 }

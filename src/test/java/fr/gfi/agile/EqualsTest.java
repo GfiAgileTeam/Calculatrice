@@ -21,7 +21,7 @@ public class EqualsTest {
 	@Test
 	public void testAddition(){
 		
-		double resultat = ManagerOperations.additionner(0,0);
+		double resultat = ManagerOperations.additionner();
 		
 		Assert.assertEquals(0.0, resultat);
 	}

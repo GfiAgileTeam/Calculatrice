@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import fr.gfi.agile.metier.ManagerOperations;
+
 public class NumberListener implements ActionListener {
 
 	private JLabel labelResultat;
@@ -16,7 +18,6 @@ public class NumberListener implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-
 		String valeurBouton = ((JButton) e.getSource()).getText();
 		String text = this.labelResultat.getText();
 		text += valeurBouton;
