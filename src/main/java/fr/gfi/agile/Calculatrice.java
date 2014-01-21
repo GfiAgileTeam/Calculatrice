@@ -2,6 +2,8 @@ package fr.gfi.agile;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fr.gfi.agile.listeners.NumberListener;
+
+
 
 public class Calculatrice {
 
@@ -41,6 +45,34 @@ public class Calculatrice {
 		JButton boutonSept = new JButton("7");
 		JButton boutonHuit = new JButton("8");
 		JButton boutonNeuf = new JButton("9");
+		JButton boutonAddition = new JButton("+");
+		boutonAddition.addMouseListener(new MouseListener() {
+			
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("On fait une addition");
+				
+			}
+		});
 		
 		GridLayout grilleLayout = new GridLayout(1,10);
 		JPanel panel = new JPanel(grilleLayout);
@@ -56,7 +88,7 @@ public class Calculatrice {
 		panel.add(boutonSept);
 		panel.add(boutonHuit);
 		panel.add(boutonNeuf);
-
+		panel.add(boutonAddition);
 		
 		ActionListener listener = new NumberListener(resultat);
 		
@@ -80,9 +112,7 @@ public class Calculatrice {
 
 	}
 
-	public static double additionner(double i, double j) {
-		return i+j;
-	}
+	
 
 	/**
 	 * 

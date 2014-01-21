@@ -4,6 +4,8 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import fr.gfi.agile.metier.ManagerOperations;
+
 public class AdditionTest {
 
 	@Test
@@ -11,7 +13,7 @@ public class AdditionTest {
 		double i =1;
 		double j = 2;
 		
-		double resultat = Calculatrice.additionner(i,j);
+		double resultat = ManagerOperations.additionner(i,j);
 		
 		Assert.assertEquals(i+j, resultat);
 	}
