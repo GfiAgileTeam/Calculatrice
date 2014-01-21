@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fr.gfi.agile.listeners.EgalListener;
 import fr.gfi.agile.listeners.NumberListener;
 
 public class Calculatrice {
@@ -31,7 +32,7 @@ public class Calculatrice {
 
 		GridLayout grilleGlobale = new GridLayout(2, 1);
 		JPanel panelGlobal = new JPanel(grilleGlobale);
-		
+
 		JPanel panelResultat = new JPanel();
 		// ...create emptyLabel...
 
@@ -53,34 +54,34 @@ public class Calculatrice {
 		JButton boutonHuit = new JButton("8");
 		JButton boutonNeuf = new JButton("9");
 		JButton boutonAddition = new JButton("+");
+		JButton boutonEqual = new JButton("=");
 		boutonAddition.addMouseListener(new MouseListener() {
-			
+
 			public void mouseReleased(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			public void mouseExited(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			public void mouseClicked(MouseEvent arg0) {
 				System.out.println("On fait une addition");
-				
+
 			}
 		});
-		
 
 		GridLayout grilleLayout = new GridLayout(4, 3);
 
@@ -96,6 +97,7 @@ public class Calculatrice {
 		panelBoutons.add(boutonTrois);
 		panelBoutons.add(boutonZero);
 		panelBoutons.add(boutonAddition);
+		panelBoutons.add(boutonEqual);
 
 		panelGlobal.add(panelBoutons);
 		fenetreCalculatrice.add(panelGlobal);
@@ -113,6 +115,9 @@ public class Calculatrice {
 		boutonHuit.addActionListener(numberListener);
 		boutonNeuf.addActionListener(numberListener);
 
+		ActionListener egalListener = new EgalListener(this, resultat);
+		boutonEqual.addActionListener(egalListener);
+
 		// 4. Size the frame.
 		fenetreCalculatrice.pack();
 
@@ -120,7 +125,7 @@ public class Calculatrice {
 		fenetreCalculatrice.setVisible(true);
 
 	}
-	
+
 	/**
 	 * 
 	 * @param double i
@@ -130,9 +135,8 @@ public class Calculatrice {
 	public static double soustraire(double i, double j) {
 		return i - j;
 	}
-	
-	
-	public static double egal() {
+
+	public double egal() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
