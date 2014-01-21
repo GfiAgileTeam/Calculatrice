@@ -84,4 +84,15 @@ public class Calculatrice {
 		return i+j;
 	}
 
+	/**
+	 * 
+	 * @param double i
+	 * @param double j
+	 * @return double
+	 */
+	public static double soustraire(double i, double j) {
+		return i - j;
+	}
+	
+	
 }
