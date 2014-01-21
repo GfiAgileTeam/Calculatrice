@@ -5,15 +5,15 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.gfi.agile.business.CalculatorBusiness;
+import fr.gfi.agile.metier.ManagerOperations;
 
 public class SoustraireTest extends TestCase{
 	
-	private CalculatorBusiness calc;
+	private ManagerOperations calc;
 	
 	@Before
 	public void setUp() {
-		calc = new CalculatorBusiness();
+		calc = new ManagerOperations();
 	}
 	
 	@Test
