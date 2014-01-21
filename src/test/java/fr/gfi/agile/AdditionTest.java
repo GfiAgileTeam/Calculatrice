@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import fr.gfi.agile.metier.ManagerOperations;
 
-public class AdditionTest extends TestCase{
+public class AdditionTest extends TestCase {
 
 	private ManagerOperations calc;
 
