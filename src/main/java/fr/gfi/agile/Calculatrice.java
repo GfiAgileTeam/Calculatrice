@@ -2,21 +2,20 @@ package fr.gfi.agile;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fr.gfi.agile.listeners.AdditionListener;
+import fr.gfi.agile.composant.BoutonSoustraction;
 import fr.gfi.agile.listeners.EgalListener;
 import fr.gfi.agile.listeners.NumberListener;
-import fr.gfi.agile.listeners.SoustraireListener;
 
 public class Calculatrice {
 
-	private static JLabel RESULTAT = new JLabel("");
-	
 	public Calculatrice() {
 		super();
 		creerCalculatrice();
@@ -36,9 +35,11 @@ public class Calculatrice {
 		JPanel panelGlobal = new JPanel(grilleGlobale);
 
 		JPanel panelResultat = new JPanel();
-
 		// ...create emptyLabel...
-		panelResultat.add(RESULTAT);
+
+		final JLabel resultat = new JLabel("");
+		resultat.setSize(100, 50);
+		panelResultat.add(resultat);
 
 		panelGlobal.add(panelResultat);
 		// verticalLayout.addLayoutComponent("resultat", resultat);
@@ -53,8 +54,58 @@ public class Calculatrice {
 		JButton boutonSept = new JButton("7");
 		JButton boutonHuit = new JButton("8");
 		JButton boutonNeuf = new JButton("9");
+		JButton boutonAddition = new JButton("+");
+		JButton boutonEqual = new JButton("=");
+		JButton boutonSoustraire = new BoutonSoustraction();
+		boutonAddition.addMouseListener(new MouseListener() {
 
-		ActionListener numberListener = new NumberListener(RESULTAT);
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("On fait une addition");
+
+			}
+		});
+
+		GridLayout grilleLayout = new GridLayout(4, 3);
+
+		JPanel panelBoutons = new JPanel(grilleLayout);
+		panelBoutons.add(boutonSept);
+		panelBoutons.add(boutonHuit);
+		panelBoutons.add(boutonNeuf);
+		panelBoutons.add(boutonQuatre);
+		panelBoutons.add(boutonCinq);
+		panelBoutons.add(boutonSix);
+		panelBoutons.add(boutonUn);
+		panelBoutons.add(boutonDeux);
+		panelBoutons.add(boutonTrois);
+		panelBoutons.add(boutonZero);
+		panelBoutons.add(boutonAddition);
+		panelBoutons.add(boutonEqual);
+		panelBoutons.add(boutonSoustraire);
+
+		panelGlobal.add(panelBoutons);
+		fenetreCalculatrice.add(panelGlobal);
+
+		ActionListener numberListener = new NumberListener(resultat);
 
 		boutonZero.addActionListener(numberListener);
 		boutonUn.addActionListener(numberListener);
@@ -67,52 +118,10 @@ public class Calculatrice {
 		boutonHuit.addActionListener(numberListener);
 		boutonNeuf.addActionListener(numberListener);
 
-		JButton boutonAddition = new JButton("+");
-		JButton boutonSoustraire = new JButton("-");
-		JButton boutonMultiplication = new JButton("*");
-		JButton boutonEqual = new JButton("=");
-
-		AdditionListener additionListener = new AdditionListener();
-		boutonAddition.addMouseListener(additionListener);
-
-		GridLayout grilleLayout = new GridLayout(4, 4);
-
-		JPanel panelBoutons = new JPanel(grilleLayout);
-		// Ligne 1
-		panelBoutons.add(boutonSept);
-		panelBoutons.add(boutonHuit);
-		panelBoutons.add(boutonNeuf);
-		panelBoutons.add(boutonAddition);
-
-		// Ligne 2
-		panelBoutons.add(boutonQuatre);
-		panelBoutons.add(boutonCinq);
-		panelBoutons.add(boutonSix);
-		panelBoutons.add(boutonMultiplication);
-
-		// Ligne 3
-		panelBoutons.add(boutonUn);
-		panelBoutons.add(boutonDeux);
-		panelBoutons.add(boutonTrois);
-		panelBoutons.add(boutonSoustraire);
-
-		// Ligne 4
-		panelBoutons.add(boutonZero);
-		panelBoutons.add(new JLabel());
-		panelBoutons.add(new JLabel());
-		panelBoutons.add(boutonEqual);
-
-		panelGlobal.add(panelBoutons);
-		fenetreCalculatrice.add(panelGlobal);
-
-		ActionListener egalListener = new EgalListener(RESULTAT);
-
+		ActionListener egalListener = new EgalListener(resultat);
 		boutonEqual.addActionListener(egalListener);
-
-		ActionListener listenerSoustraire = new SoustraireListener(RESULTAT);
-		boutonSoustraire.addActionListener(listenerSoustraire);
-
-		// 4. Size the frame.
+		
+		//4. Size the frame.
 		fenetreCalculatrice.pack();
 
 		// 5. Show it.
@@ -120,27 +129,5 @@ public class Calculatrice {
 
 	}
 
-	/**
-	 * 
-	 * @param double i
-	 * @param double j
-	 * @return double
-	 */
-	public static double soustraire(double i, double j) {
-		return i - j;
-	}
-
-	public double egal() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public static String getResultat() {
-		return RESULTAT.getText();
-	}
-	
-	public static void setResultat(String resultat) {
-		RESULTAT.setText(resultat);
-	}
 
 }
