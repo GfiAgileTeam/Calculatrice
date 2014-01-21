@@ -2,16 +2,14 @@ package fr.gfi.agile;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fr.gfi.agile.listeners.EgalListener;
 import fr.gfi.agile.listeners.AdditionListener;
+import fr.gfi.agile.listeners.EgalListener;
 import fr.gfi.agile.listeners.NumberListener;
 import fr.gfi.agile.listeners.SoustraireListener;
 
@@ -106,19 +104,6 @@ public class Calculatrice {
 
 		panelGlobal.add(panelBoutons);
 		fenetreCalculatrice.add(panelGlobal);
-
-
-
-		boutonZero.addActionListener(numberListener);
-		boutonUn.addActionListener(numberListener);
-		boutonDeux.addActionListener(numberListener);
-		boutonTrois.addActionListener(numberListener);
-		boutonQuatre.addActionListener(numberListener);
-		boutonCinq.addActionListener(numberListener);
-		boutonSix.addActionListener(numberListener);
-		boutonSept.addActionListener(numberListener);
-		boutonHuit.addActionListener(numberListener);
-		boutonNeuf.addActionListener(numberListener);
 
 		ActionListener egalListener = new EgalListener(RESULTAT);
 

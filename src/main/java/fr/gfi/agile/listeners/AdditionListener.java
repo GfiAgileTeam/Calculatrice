@@ -14,9 +14,10 @@ public class AdditionListener implements MouseListener {
 		}
 		ManagerOperations.setDONNEE_AFFICHEE(Double.valueOf(Calculatrice.getResultat()));			
 		ManagerOperations.setOPERATEUR("+");
-		if (ManagerOperations.getDONNEE_PRECEDENTE() == null) {
+		if (ManagerOperations.getDONNEE_PRECEDENTE() != null) {
 			Calculatrice.setResultat(String.valueOf(ManagerOperations.additionner()));
 		}
+		ManagerOperations.setINPUT("+");
 }
 
 	public void mouseEntered(MouseEvent e) {

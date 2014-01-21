@@ -19,9 +19,15 @@ public class NumberListener implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		String valeurBouton = ((JButton) e.getSource()).getText();
-		String text = this.labelResultat.getText();
-		text += valeurBouton;
-		labelResultat.setText(text);
+		String input = ManagerOperations.getINPUT();
+		if ("+".equals(input)) {
+			labelResultat.setText(valeurBouton);
+		} else {	
+			String text = this.labelResultat.getText();
+			text += valeurBouton;
+			labelResultat.setText(text);
+		} 
+		ManagerOperations.setINPUT(valeurBouton);
 	}
 
 }

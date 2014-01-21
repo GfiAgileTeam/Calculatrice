@@ -2,6 +2,7 @@ package fr.gfi.agile.metier;
 
 public class ManagerOperations {
 	
+	private static String INPUT = null;
 	private static Double DONNEE_AFFICHEE = null;
 	private static Double DONNEE_PRECEDENTE = null;
 	private static String OPERATEUR =null;
@@ -38,7 +39,14 @@ public class ManagerOperations {
 	public static double additionner() {
 		return DONNEE_AFFICHEE+DONNEE_PRECEDENTE;
 	}
-	
+
+	public static String getINPUT() {
+		return INPUT;
+	}
+
+	public static void setINPUT(String iNPUT) {
+		INPUT = iNPUT;
+	}
 	public static double egal() {
 		return 0;
 	}
