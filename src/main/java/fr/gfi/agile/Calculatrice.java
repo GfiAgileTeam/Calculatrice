@@ -14,6 +14,9 @@ import fr.gfi.agile.listeners.EgalListener;
 import fr.gfi.agile.listeners.NumberListener;
 import fr.gfi.agile.metier.ManagerOperations;
 
+import fr.gfi.agile.listeners.SoustraireListener;
+
+
 public class Calculatrice {
 
 	public Calculatrice() {
@@ -56,6 +59,7 @@ public class Calculatrice {
 		JButton boutonNeuf = new JButton("9");
 		JButton boutonAddition = new JButton("+");
 		JButton boutonEqual = new JButton("=");
+		JButton boutonSoustraire = new JButton("-");
 		boutonAddition.addMouseListener(new MouseListener() {
 
 			public void mouseReleased(MouseEvent arg0) {
@@ -99,6 +103,7 @@ public class Calculatrice {
 		panelBoutons.add(boutonZero);
 		panelBoutons.add(boutonAddition);
 		panelBoutons.add(boutonEqual);
+		panelBoutons.add(boutonSoustraire);
 
 		panelGlobal.add(panelBoutons);
 		fenetreCalculatrice.add(panelGlobal);
@@ -118,7 +123,11 @@ public class Calculatrice {
 
 		ActionListener egalListener = new EgalListener(resultat);
 		boutonEqual.addActionListener(egalListener);
+		
+		ActionListener listenerSoustraire = new SoustraireListener(resultat);
+		boutonSoustraire.addActionListener(listenerSoustraire);
 
+		//4. Size the frame.
 		fenetreCalculatrice.pack();
 
 		// 5. Show it.
@@ -126,19 +135,5 @@ public class Calculatrice {
 
 	}
 
-	/**
-	 * 
-	 * @param double i
-	 * @param double j
-	 * @return double
-	 */
-	public static double soustraire(double i, double j) {
-		return i - j;
-	}
-
-	public double egal() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
